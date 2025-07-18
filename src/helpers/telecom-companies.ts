@@ -105,8 +105,8 @@ export const telecomCompanies: TelecomCompany[] = [
   },
   {
     prefix: 79,
-    company: "Benson Informatics Ltd",
-    brand: "Smart",
-    operational: "no",
+    company: "Vodacom Tanzania Limited",
+    brand: "Vodacom",
+    operational: "yes",
   },
 ];

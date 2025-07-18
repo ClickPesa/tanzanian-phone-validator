@@ -139,7 +139,7 @@ Note : this package does not validate for Operators which are not in Operation n
 | 76     | Vodacom Tanzania Limited                          | Vodacom    | yes            |
 | 77     | MIC Tanzania Limited                              | tiGo       | yes            |
 | 78     | Airtel Tanzania Limited                           | airtel     | yes            |
-| 79     | Benson Informatics Ltd                            | Smart      | no             |
+| 79     | Vodacom Tanzania Limited                          | Vodacom    | yes            |
 
 License
 This package is licensed under the MIT License. [See the LICENSE.](https://github.com/fredygerman/tanzanian-phone-validator/blob/main/LICENSE.md).
