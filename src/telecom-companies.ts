@@ -38,8 +38,8 @@ export const telecomCompanies: TelecomCompany[] = [
 	},
 	{
 		prefix: 66,
-		company: "Smile Communications Tanzania Limited",
-		brand: "smile",
+		company: "Airtel Tanzania Limited",
+		brand: "airtel",
 		operational: "yes",
 	},
 	{

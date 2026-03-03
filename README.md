@@ -73,7 +73,7 @@ schema
 
 ```js
 const { z } = require("zod");
-import { validateTanzanianPhoneNumber } from "tanzanian-phone-validator";
+import { isValidPhoneNumber } from "tanzanian-phone-validator";
 
 const schema = z.object({
   phoneNumber: z.string().refine(
@@ -104,7 +104,7 @@ try {
 You can also directly use the isValidPhoneNumber function:
 
 ```js
-import { validateTanzanianPhoneNumber } from "tanzanian-phone-validator";
+import { isValidPhoneNumber } from "tanzanian-phone-validator";
 
 const phoneNumber = "+255761234567";
 
@@ -117,8 +117,9 @@ if (isValidPhoneNumber(phoneNumber)) {
 
 ## List of Tanzanian mobile network operators and their prefixes
 
-This table was used to used to create this package. IT can be found [in wikipedia (Click here).](https://en.wikipedia.org/wiki/Telephone_numbers_in_Tanzania).
-Note : this package does not validate for Operators which are not in Operation nor on this table.
+This table was used to create this package. It can be found [on Wikipedia (click here).](https://en.wikipedia.org/wiki/Telephone_numbers_in_Tanzania).
+
+**Note:** Only prefixes listed in this table are accepted. Numbers with other prefixes (e.g. 80, 81) are rejected. Both operational and non-operational operators in the table are supported.
 
 | Prefix | Operator                                          | Trading as | Operational[1] |
 | ------ | ------------------------------------------------- | ---------- | -------------- |
@@ -127,7 +128,7 @@ Note : this package does not validate for Operators which are not in Operation n
 | 63     | Mkulima African Telecommunication Company Limited | Amotel     | no             |
 | 64     | Wiafrica Tanzania Limited                         | CooTel     | no             |
 | 65     | MIC Tanzania Limited                              | tiGo       | yes            |
-| 66     | Smile Communications Tanzania Limited             | smile      | yes            |
+| 66     | Airtel Tanzania Limited                           | airtel     | yes            |
 | 67     | MIC Tanzania Limited                              | tiGo       | yes            |
 | 68     | Airtel Tanzania Limited                           | airtel     | yes            |
 | 69     | Airtel Tanzania Limited                           | airtel     | yes            |
@@ -141,5 +142,6 @@ Note : this package does not validate for Operators which are not in Operation n
 | 78     | Airtel Tanzania Limited                           | airtel     | yes            |
 | 79     | Vodacom Tanzania Limited                          | Vodacom    | yes            |
 
-License
+## License
+
 This package is licensed under the MIT License. [See the LICENSE.](https://github.com/fredygerman/tanzanian-phone-validator/blob/main/LICENSE.md).
