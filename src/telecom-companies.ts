@@ -20,9 +20,9 @@ export const telecomCompanies: TelecomCompany[] = [
 	},
 	{
 		prefix: 63,
-		company: "Mkulima African Telecommunication Company Limited",
-		brand: "Amotel",
-		operational: "no",
+		company: "Viettel Tanzania Limited",
+		brand: "halotel",
+		operational: "yes",
 	},
 	{
 		prefix: 64,

@@ -125,7 +125,7 @@ This table was used to create this package. It can be found [on Wikipedia (click
 | ------ | ------------------------------------------------- | ---------- | -------------- |
 | 61     | Viettel Tanzania Limited                          | halotel    | yes            |
 | 62     | Viettel Tanzania Limited                          | halotel    | yes            |
-| 63     | Mkulima African Telecommunication Company Limited | Amotel     | no             |
+| 63     | Viettel Tanzania Limited                          | halotel    | yes            |
 | 64     | Wiafrica Tanzania Limited                         | CooTel     | no             |
 | 65     | MIC Tanzania Limited                              | tiGo       | yes            |
 | 66     | Airtel Tanzania Limited                           | airtel     | yes            |
