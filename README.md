@@ -132,6 +132,7 @@ This table was used to create this package. It can be found [on Wikipedia (click
 | 67     | MIC Tanzania Limited                              | tiGo       | yes            |
 | 68     | Airtel Tanzania Limited                           | airtel     | yes            |
 | 69     | Airtel Tanzania Limited                           | airtel     | yes            |
+| 70     | MIC Tanzania Limited                              | tiGo       | yes            |
 | 71     | MIC Tanzania Limited                              | tiGo       | yes            |
 | 72     | MO Mobile Holding Limited                         |            | no             |
 | 73     | Tanzania Telecommunications Company Ltd           | TTCL       | yes            |

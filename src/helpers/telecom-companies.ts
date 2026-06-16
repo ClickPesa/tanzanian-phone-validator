@@ -56,6 +56,12 @@ export const telecomCompanies: TelecomCompany[] = [
     operational: "yes",
   },
   {
+    prefix: 70,
+    company: "MIC Tanzania Limited",
+    brand: "tiGo",
+    operational: "yes",
+  },
+  {
     prefix: 71,
     company: "MIC Tanzania Limited",
     brand: "tiGo",

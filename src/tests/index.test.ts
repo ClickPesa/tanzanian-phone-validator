@@ -7,6 +7,8 @@ describe("Tanzanian Phone Number Validation", () => {
   it("should return true for a valid Tanzanian phone number", () => {
     const validNumbers = [
       "+255712345696",
+      "+255703123456",
+      "0703123456",
       "0712349878",
       "0612345988",
       "0745687901",
@@ -28,10 +30,11 @@ describe("Tanzanian Phone Number Validation", () => {
       // Operator: Viettel Tanzania Limited (halotel)
       "61",
       "62",
-      // Operator: MIC Tanzania Limited (tiGo)
+      // Operator: MIC Tanzania Limited (tiGo / Mixx by Yas)
       "65",
       "66",
       "67",
+      "70",
       "71",
       // Operator: Tanzania Telecommunications Company Ltd (TTCL)
       "73",
@@ -56,6 +59,16 @@ describe("Tanzanian Phone Number Validation", () => {
       expect(details.isValid).toBe(true);
       expect(details.telecomCompanyDetails).toBeDefined();
     });
+  });
+
+  it("should identify prefix 70 as Mixx by Yas (tiGo)", () => {
+    const mixxNumber = "255703123456";
+    expect(isValidPhoneNumber(mixxNumber)).toBe(true);
+
+    const details = getPhoneNumberDetails(mixxNumber) as PhoneNumberDetails;
+    expect(details.isValid).toBe(true);
+    expect(details.telecomCompanyDetails?.prefix).toBe(70);
+    expect(details.telecomCompanyDetails?.brand).toBe("tiGo");
   });
 
   it("should return false for an invalid Tanzanian phone number", () => {
