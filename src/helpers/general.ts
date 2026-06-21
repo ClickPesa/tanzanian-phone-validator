@@ -3,13 +3,22 @@ import { tanzanianPhoneNumberRegex } from "./regex";
 import { TelecomCompany } from "../types/general";
 
 export function extractMobilePrefix(mobileNumber: string): string | null {
-  const match = mobileNumber.match(tanzanianPhoneNumberRegex);
+  const normalizedNumber = mobileNumber.replace(/[-.\s]/g, "");
+  const match = normalizedNumber.match(tanzanianPhoneNumberRegex);
 
   if (!match) {
     return null;
   }
 
-  return match?.[1] || null;
+  if (match[1]) {
+    return match[1];
+  }
+
+  if (/^0724\d{6}$/.test(normalizedNumber)) {
+    return "24";
+  }
+
+  return match[2] || null;
 }
 
 export function getTelecomCompany(

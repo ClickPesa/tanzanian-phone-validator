@@ -2,6 +2,12 @@ import { TelecomCompany } from "../types/general";
 
 export const telecomCompanies: TelecomCompany[] = [
   {
+    prefix: 24,
+    company: "Vodacom Tanzania Limited",
+    brand: "Vodacom",
+    operational: "yes",
+  },
+  {
     prefix: 61,
     company: "Viettel Tanzania Limited",
     brand: "halotel",

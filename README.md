@@ -123,6 +123,7 @@ This table was used to create this package. It can be found [on Wikipedia (click
 
 | Prefix | Operator                                          | Trading as | Operational[1] |
 | ------ | ------------------------------------------------- | ---------- | -------------- |
+| 24     | Vodacom Tanzania Limited                          | Vodacom    | yes            |
 | 61     | Viettel Tanzania Limited                          | halotel    | yes            |
 | 62     | Viettel Tanzania Limited                          | halotel    | yes            |
 | 63     | Viettel Tanzania Limited                          | halotel    | yes            |

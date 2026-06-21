@@ -3,6 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.telecomCompanies = void 0;
 exports.telecomCompanies = [
     {
+        prefix: 24,
+        company: "Vodacom Tanzania Limited",
+        brand: "Vodacom",
+        operational: "yes",
+    },
+    {
         prefix: 61,
         company: "Viettel Tanzania Limited",
         brand: "halotel",

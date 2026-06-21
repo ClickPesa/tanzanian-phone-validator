@@ -7,7 +7,9 @@ describe("Tanzanian Phone Number Validation", () => {
         const validNumbers = [
             "+255712345696",
             "+255703123456",
+            "+25524737422",
             "0703123456",
+            "0724737422",
             "0712349878",
             "0612345988",
             "0745687901",
@@ -33,6 +35,7 @@ describe("Tanzanian Phone Number Validation", () => {
             // Operator: Tanzania Telecommunications Company Ltd (TTCL)
             "73",
             // Operator: Vodacom Tanzania Limited (Vodacom)
+            "24",
             "74",
             "75",
             "76",
@@ -42,12 +45,21 @@ describe("Tanzanian Phone Number Validation", () => {
             "78",
         ];
         operationalPrefixes.forEach((prefix) => {
-            const validNumber = `+255 ${prefix}4216996`;
+            const validNumber = prefix === "24" ? `+255${prefix}421699` : `+255 ${prefix}4216996`;
             expect((0, index_1.isValidPhoneNumber)(validNumber)).toBe(true);
             const details = (0, index_1.getPhoneNumberDetails)(validNumber);
             expect(details.isValid).toBe(true);
             expect(details.telecomCompanyDetails).toBeDefined();
         });
+    });
+    it("should identify prefix 24 as M-Pesa (Vodacom)", () => {
+        var _a, _b;
+        const mpesaNumber = "0724737422";
+        expect((0, index_1.isValidPhoneNumber)(mpesaNumber)).toBe(true);
+        const details = (0, index_1.getPhoneNumberDetails)(mpesaNumber);
+        expect(details.isValid).toBe(true);
+        expect((_a = details.telecomCompanyDetails) === null || _a === void 0 ? void 0 : _a.prefix).toBe(24);
+        expect((_b = details.telecomCompanyDetails) === null || _b === void 0 ? void 0 : _b.brand).toBe("Vodacom");
     });
     it("should identify prefix 70 as Mixx by Yas (tiGo)", () => {
         var _a, _b;

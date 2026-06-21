@@ -4,11 +4,18 @@ exports.getTelecomCompany = exports.extractMobilePrefix = void 0;
 const telecom_companies_1 = require("./telecom-companies");
 const regex_1 = require("./regex");
 function extractMobilePrefix(mobileNumber) {
-    const match = mobileNumber.match(regex_1.tanzanianPhoneNumberRegex);
+    const normalizedNumber = mobileNumber.replace(/[-.\s]/g, "");
+    const match = normalizedNumber.match(regex_1.tanzanianPhoneNumberRegex);
     if (!match) {
         return null;
     }
-    return (match === null || match === void 0 ? void 0 : match[1]) || null;
+    if (match[1]) {
+        return match[1];
+    }
+    if (/^0724\d{6}$/.test(normalizedNumber)) {
+        return "24";
+    }
+    return match[2] || null;
 }
 exports.extractMobilePrefix = extractMobilePrefix;
 function getTelecomCompany(phoneNumberPrefix) {
