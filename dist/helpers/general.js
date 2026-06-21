@@ -9,13 +9,10 @@ function extractMobilePrefix(mobileNumber) {
     if (!match) {
         return null;
     }
-    if (match[1]) {
-        return match[1];
-    }
-    if (/^0724\d{6}$/.test(normalizedNumber)) {
+    if (/^(?:\+?255724|0724)\d{6}$/.test(normalizedNumber)) {
         return "24";
     }
-    return match[2] || null;
+    return match[1] || null;
 }
 exports.extractMobilePrefix = extractMobilePrefix;
 function getTelecomCompany(phoneNumberPrefix) {

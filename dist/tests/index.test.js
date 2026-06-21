@@ -7,7 +7,7 @@ describe("Tanzanian Phone Number Validation", () => {
         const validNumbers = [
             "+255712345696",
             "+255703123456",
-            "+25524737422",
+            "+255724737422",
             "0703123456",
             "0724737422",
             "0712349878",
@@ -45,7 +45,7 @@ describe("Tanzanian Phone Number Validation", () => {
             "78",
         ];
         operationalPrefixes.forEach((prefix) => {
-            const validNumber = prefix === "24" ? `+255${prefix}421699` : `+255 ${prefix}4216996`;
+            const validNumber = prefix === "24" ? `+255724421699` : `+255 ${prefix}4216996`;
             expect((0, index_1.isValidPhoneNumber)(validNumber)).toBe(true);
             const details = (0, index_1.getPhoneNumberDetails)(validNumber);
             expect(details.isValid).toBe(true);
@@ -53,13 +53,19 @@ describe("Tanzanian Phone Number Validation", () => {
         });
     });
     it("should identify prefix 24 as M-Pesa (Vodacom)", () => {
-        var _a, _b;
-        const mpesaNumber = "0724737422";
-        expect((0, index_1.isValidPhoneNumber)(mpesaNumber)).toBe(true);
-        const details = (0, index_1.getPhoneNumberDetails)(mpesaNumber);
-        expect(details.isValid).toBe(true);
-        expect((_a = details.telecomCompanyDetails) === null || _a === void 0 ? void 0 : _a.prefix).toBe(24);
-        expect((_b = details.telecomCompanyDetails) === null || _b === void 0 ? void 0 : _b.brand).toBe("Vodacom");
+        var _a, _b, _c, _d;
+        const localNumber = "0724737422";
+        const internationalNumber = "255724737422";
+        expect((0, index_1.isValidPhoneNumber)(localNumber)).toBe(true);
+        expect((0, index_1.isValidPhoneNumber)(internationalNumber)).toBe(true);
+        const localDetails = (0, index_1.getPhoneNumberDetails)(localNumber);
+        expect(localDetails.isValid).toBe(true);
+        expect((_a = localDetails.telecomCompanyDetails) === null || _a === void 0 ? void 0 : _a.prefix).toBe(24);
+        expect((_b = localDetails.telecomCompanyDetails) === null || _b === void 0 ? void 0 : _b.brand).toBe("Vodacom");
+        const internationalDetails = (0, index_1.getPhoneNumberDetails)(internationalNumber);
+        expect(internationalDetails.isValid).toBe(true);
+        expect((_c = internationalDetails.telecomCompanyDetails) === null || _c === void 0 ? void 0 : _c.prefix).toBe(24);
+        expect((_d = internationalDetails.telecomCompanyDetails) === null || _d === void 0 ? void 0 : _d.brand).toBe("Vodacom");
     });
     it("should identify prefix 70 as Mixx by Yas (tiGo)", () => {
         var _a, _b;
@@ -75,6 +81,7 @@ describe("Tanzanian Phone Number Validation", () => {
             "12345678",
             "07123456789",
             "+255812345678",
+            "+25524737422",
             "07512345678",
             "071234567A",
             "071234567", // Missing the last digit

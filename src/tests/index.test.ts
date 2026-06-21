@@ -8,7 +8,7 @@ describe("Tanzanian Phone Number Validation", () => {
     const validNumbers = [
       "+255712345696",
       "+255703123456",
-      "+25524737422",
+      "+255724737422",
       "0703123456",
       "0724737422",
       "0712349878",
@@ -53,7 +53,7 @@ describe("Tanzanian Phone Number Validation", () => {
 
     operationalPrefixes.forEach((prefix) => {
       const validNumber =
-        prefix === "24" ? `+255${prefix}421699` : `+255 ${prefix}4216996`;
+        prefix === "24" ? `+255724421699` : `+255 ${prefix}4216996`;
 
       expect(isValidPhoneNumber(validNumber)).toBe(true);
 
@@ -66,13 +66,23 @@ describe("Tanzanian Phone Number Validation", () => {
   });
 
   it("should identify prefix 24 as M-Pesa (Vodacom)", () => {
-    const mpesaNumber = "0724737422";
-    expect(isValidPhoneNumber(mpesaNumber)).toBe(true);
+    const localNumber = "0724737422";
+    const internationalNumber = "255724737422";
 
-    const details = getPhoneNumberDetails(mpesaNumber) as PhoneNumberDetails;
-    expect(details.isValid).toBe(true);
-    expect(details.telecomCompanyDetails?.prefix).toBe(24);
-    expect(details.telecomCompanyDetails?.brand).toBe("Vodacom");
+    expect(isValidPhoneNumber(localNumber)).toBe(true);
+    expect(isValidPhoneNumber(internationalNumber)).toBe(true);
+
+    const localDetails = getPhoneNumberDetails(localNumber) as PhoneNumberDetails;
+    expect(localDetails.isValid).toBe(true);
+    expect(localDetails.telecomCompanyDetails?.prefix).toBe(24);
+    expect(localDetails.telecomCompanyDetails?.brand).toBe("Vodacom");
+
+    const internationalDetails = getPhoneNumberDetails(
+      internationalNumber
+    ) as PhoneNumberDetails;
+    expect(internationalDetails.isValid).toBe(true);
+    expect(internationalDetails.telecomCompanyDetails?.prefix).toBe(24);
+    expect(internationalDetails.telecomCompanyDetails?.brand).toBe("Vodacom");
   });
 
   it("should identify prefix 70 as Mixx by Yas (tiGo)", () => {
@@ -90,6 +100,7 @@ describe("Tanzanian Phone Number Validation", () => {
       "12345678", // Too short
       "07123456789", // Too long
       "+255812345678", // Invalid prefix
+      "+25524737422", // Invalid international format for prefix 24
       "07512345678", // Invalid prefix
       "071234567A", // Contains non-numeric characters
       "071234567", // Missing the last digit
